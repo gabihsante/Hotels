@@ -1,0 +1,25 @@
+nz-header {
+    width: 100%;
+    background: rgb(255, 255, 255);
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    z-index: 2;
+}
+
+::ng-deep .ant-card-head-title {
+    padding: 5px !important;
+    font-size: 25px !important;
+    color:#000000ad
+}
+
+nz-content {
+    margin-top: 8rem !important;
+}
+
+nz-content {
+    padding: 0 50px;
+    margin-top: 64px;
+    background: #f2f2f200;
+}

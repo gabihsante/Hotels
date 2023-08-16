@@ -1,0 +1,39 @@
+<nz-drawer [nzVisible]="visible" [nzWidth]="720" (nzOnClose)="onClose()" nzPlacement="right" nzTitle="{{ data.name }}">
+    <ng-container *nzDrawerContent>
+        <span *ngIf="data.address">{{this.data.address.fullAddress}}, {{this.data.address.city}} - {{this.data.address.state}}</span>
+        <div class="carousel-div">
+            <button class="btn-left" nz-button nzType="default" nzShape="circle" [nzSize]="'small'"
+                (click)="carousel.pre()">
+                <span nz-icon nzType="left" nzTheme="outline"></span>
+            </button>
+            <nz-carousel style="height: 100%; width: 100%;" #carousel>
+                <div nz-carousel-content *ngFor="let image of data.images">
+                    <img [src]="image" style="height: 100%; width: 100%;" alt="image" />
+                </div>
+            </nz-carousel>
+            <button class="btn-right" nz-button nzType="default" nzShape="circle" [nzSize]="'small'"
+                (click)="carousel.next()">
+                <span nz-icon nzType="right" nzTheme="outline"></span>
+            </button>
+        </div>
+        <p class="title mt-2">Facilidades do hotel</p>
+        <hr>
+        <div class="div-amenities">
+            <div *ngFor="let resource of data.amenities; let i = index">
+                <ng-container *ngIf="i <= index">
+                    <img width="20" height="20" [src]="getResourcePath(resource.key)">
+                    <span class="ms-2">{{ resource.label }}</span>
+                </ng-container>
+            </div>
+        </div>
+        <div class="d-flex justify-content-center">
+            <button nz-button nzType="default" [nzSize]="'large'" nzShape="round"
+                (click)="showMoreAmenities(data.amenities)" class="btn-amenities">
+                <span>{{ showMore? 'Mostrar menos':'Mostrar todas as facilidades' }}</span>
+            </button>
+        </div>
+        <hr>
+        <p class="title">Conheça um pouco mais</p>
+        <div [innerHTML]="data.description"></div>
+    </ng-container>
+</nz-drawer>

@@ -1,0 +1,75 @@
+<nz-card nzTitle="Reservar hotel" style="border-radius: 8px;">
+    <div class="p-3 row">
+        <div class="ps-4 col-2">
+            <label class="row">Buscar por:</label>
+            <nz-select [(ngModel)]="searchType" (ngModelChange)="onChange($event)" class="search-select row">
+                <nz-option nzValue="city" nzLabel="Cidade"></nz-option>
+                <nz-option nzValue="name" nzLabel="Nome"></nz-option>
+            </nz-select>
+        </div>
+        <div class="col-10">
+            <label>Destino</label>
+            <input nz-input [placeholder]="searchType === 'city'? 'Belo Horizonte' : 'Nome do hotel'"
+                [(ngModel)]="placeSelected" (ngModelChange)="onChange($event)" [nzAutocomplete]="auto" />
+        </div>
+        <nz-autocomplete [nzDataSource]="searchResults" #auto></nz-autocomplete>
+        <button nz-button nzType="primary" nzShape="round" (click)="searchCity()" class="search-btn row ms-auto">
+            <span>{{ isSearching ? 'Alterar Busca' : 'Buscar' }}</span>
+        </button>
+    </div>
+</nz-card>
+<div class="d-flex justify-content-between align-items-center">
+    <nz-breadcrumb class="my-3">
+        <nz-breadcrumb-item>Início</nz-breadcrumb-item>
+        <nz-breadcrumb-item>Hotéis</nz-breadcrumb-item>
+        <nz-breadcrumb-item>Hospedagem em Belo Horizonte</nz-breadcrumb-item>
+    </nz-breadcrumb>
+    <div>
+        <span class="sort-span">Organizar por</span>
+        <nz-select [(ngModel)]="sort" nzBorderless (ngModelChange)="sortHotels()" class="sort-select">
+            <nz-option nzValue="price" nzLabel="Recomendados"></nz-option>
+            <nz-option nzValue="stars" nzLabel="Melhor Avaliados"></nz-option>
+        </nz-select>
+    </div>
+</div>
+<nz-list nzItemLayout="vertical" [nzDataSource]="filteredHotels" [nzLoading]="isLoading">
+    <nz-list-item *ngFor="let hotel of filteredHotels" class="my-2 d-flex justify-content-start">
+        <button class="btn-left" nz-button nzType="default" nzShape="circle" [nzSize]="'small'"
+            (click)="carousel.pre()">
+            <span nz-icon nzType="left" nzTheme="outline"></span>
+        </button>
+        <nz-carousel style="height:100%; width:300px;" #carousel>
+            <div nz-carousel-content *ngFor="let image of hotel.images">
+                <img src="{{image}}" alt="" loading="lazy" class="w-100 h-100">
+            </div>
+        </nz-carousel>
+        <button class="btn-right" nz-button nzType="default" nzShape="circle" [nzSize]="'small'"
+            (click)="carousel.next()">
+            <span nz-icon nzType="right" nzTheme="outline"></span>
+        </button>
+        <div class="description">
+            <h3>{{ hotel.name }}</h3>
+            <p>{{ hotel.address.fullAddress }}</p>
+            <div class="icons">
+                <span>{{ hotel.stars | number: '1.1' }}</span>
+                <nz-rate [ngModel]="hotel.stars | number" nzDisabled></nz-rate>
+                <span *ngFor="let resource of hotel.amenities; let i = index">
+                    <ng-container *ngIf="i < 4">
+                        <img width="14" height="20" [src]="getResourcePath(resource.key)">
+                    </ng-container>
+                </span>
+            </div>
+        </div>
+        <nz-card class="div-card-price">
+            <div class="div-price">
+                <p>A partir de:</p>
+                <span>R$</span>
+                <span class="price">{{ hotel.price | number: '1.2-2' }}</span>
+                <p>Impostos inclusos</p>
+            </div>
+            <button nz-button nzType="primary" nzShape="round" class="select-hotel" (click)="openDrawer(hotel)">
+                <span>Selecionar</span>
+            </button>
+        </nz-card>
+    </nz-list-item>
+</nz-list>

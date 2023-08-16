@@ -1,0 +1,135 @@
+::ng-deep nz-card .ant-card-body {
+    padding: 0 !important;
+}
+
+::ng-deep .search-select .ant-select-arrow {
+    width: 12px;
+    top: 12px;
+}
+
+.search-btn {
+    width: 11rem;
+    height: 2.5rem;
+    margin-top: 1.5rem;
+    display: flex;
+    align-self: self-end;
+    justify-content: center;
+    align-content: center;
+    flex-wrap: wrap;
+    margin: 1rem;
+
+    span {
+        font-size: 17px;
+        color: white;
+    }
+}
+
+.sort-span {
+    font-size: 14px;
+    color: rgba(0, 0, 0, 0.45)
+}
+
+.sort-select {
+    color: #1890ff;
+    font-weight: 900;
+    font-style: italic;
+}
+
+::ng-deep .sort-select .ant-select-arrow .anticon:not(.ant-select-suffix) {
+    color: #1890ff;
+    font-weight: 900;
+}
+
+nz-list {
+    height: 100%;
+}
+
+nz-list-item {
+    height: 262px;
+    display: block;
+    padding: 0 !important;
+    background: white;
+    position: relative;
+    border-radius: 8px !important;
+}
+
+.btn-left {
+    position: absolute;
+    top: 98px;
+    left: 7px;
+    z-index: 1;
+}
+
+.btn-right {
+    position: absolute;
+    top: 98px;
+    left: 267px;
+}
+
+nz-carousel {
+    border-radius: 8px 0 0 8px;
+}
+
+::ng-deep .slick-track {
+    width: 200px !important;
+}
+
+.description {
+    flex: auto;
+    margin: 1rem;
+}
+
+.icons {
+    width: 50%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    gap: 5px;
+    margin: 1rem;
+
+    img {
+        color: #000000ad
+    }
+}
+
+::ng-deep .ant-rate-star-second .anticon,
+.ant-rate-star-half {
+    font-size: 12px;
+}
+
+::ng-deep .anticon svg {
+    font-size: 12px;
+}
+
+.div-card-price {
+    width: 25%;
+    padding: 2em 0 0 3em;
+    display: flex;
+    justify-content: flex-start;
+    border-radius: 0 8px 8px 0;
+
+    p {
+        margin: 0;
+    }
+}
+
+.price {
+    font-size: 40px;
+    font-weight: 500;
+}
+
+.select-hotel {
+    width: 14em;
+    height: 3em;
+    margin-top: 2em;
+    display: flex;
+    align-self: flex-end;
+    justify-content: center;
+    align-content: center;
+    flex-wrap: wrap;
+
+    span {
+        font-size: 17px;
+        color: white;
+    }
+}

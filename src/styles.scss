@@ -1,1 +1,13 @@
-/* You can add global styles to this file, and also import other style files */
+@import "../node_modules/ng-zorro-antd/ng-zorro-antd.min.css";
+@import "../node_modules/ng-zorro-antd/style/index.min.css";
+@import "../node_modules/ng-zorro-antd/button/style/index.min.css";
+@import '../node_modules/bootstrap/dist/css/bootstrap.css';
+
+* {
+    font-family: montserrat, sans-serif;
+
+    p,
+    span {
+        color: #000000ad
+    }
+}

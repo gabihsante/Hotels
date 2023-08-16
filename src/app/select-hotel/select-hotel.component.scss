@@ -1,0 +1,50 @@
+nz-drawer {
+    z-index: 1;
+}
+
+.carousel-div {
+    width: 100%;
+    height: 60%;
+    position: relative;
+    border-radius: 8px;
+}
+
+nz-carousel {
+    border-radius: 8px;
+}
+
+.btn-left {
+    position: absolute;
+    top: 50%;
+    left: 15px;
+    z-index: 1;
+}
+
+.btn-right {
+    position: absolute;
+    top: 50%;
+    right: 15px;
+}
+
+.title {
+    font-size: 25px;
+}
+
+.div-amenities {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin: 2rem 1rem;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.btn-amenities {
+    color: #1890ff;
+    margin-bottom: 1rem;
+    border-color: #1890ff;
+
+    span {
+        color: #1890ff;
+    }
+}
